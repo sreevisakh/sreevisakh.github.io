@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html" />
+
+  <meta name="keywords" content="an-else-view,sreevisakh,javascript,ubuntu,git,node,js,raspberry, pi, automation" />
+  <meta name="msvalidate.01" content="DD43C10FCD76ECD1121F8BC9AC1CA438" />
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1" />
+  <meta property="og:title" content="Adding Custom Build to Android Project" />
+  <meta name="description" content="" />
+  <meta property="og:description" content="" />
+  <link rel="canonical" href="https://sreevisakh.github.io/android/2019/07/06/adding-custom-build-to-android-project/" />
+  <meta property="og:url" content="https://sreevisakh.github.io/android/2019/07/06/adding-custom-build-to-android-project/" />
+  <meta property="og:site_name" content="an-else-view" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@_sreevisakh" />
+  <meta name="twitter:creator" content="@_sreevisakh" />
+  <meta property="fb:app_id" content="1538630872879036" />
+  <meta name="google-site-verification" content="mizsVxe9d4dqvMN1c6kT5C8x1F6Aw4srhKvg9r195N0" />
+  <link rel="apple-touch-icon" href="/public/favicon.ico" />
+  <link rel="shortcut icon" href="/public/favicon.ico" />
+  <link rel="favicon" href="/public/favicon.ico" />
+  <link rel="canonical" href="https://sreevisakh.github.io" />
+
+  <title>
+    Adding Custom Build to Android Project | an-else-view | Sreevisakh 
+
+  </title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://sreevisakh.github.io/public/css/style.css" />
+  <link rel="stylesheet" href="https://sreevisakh.github.io/public/css/syntax.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface" />
+
+  <!-- Icons -->
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml" />
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-34015218-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6061935954047022",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Article",
+    "name": "Adding Custom Build to Android Project",
+    "author": {
+        "@type" : "Person",
+        "name": "Sreevisakh",
+        "email": "mail@sreevisakh.com"
+    },
+    "datePublished" :"2019-07-06 00:31:41 +0530",
+    "headline":"Adding Custom Build to Android Project",
+    "publisher":{
+        "@type":"Organization",
+        "name":"an-else-view",
+        "logo":{
+            "@type":"ImageObject",
+            "url":"https://sreevisakh.github.io/public/logo.png",
+            "width":"256",
+            "height":"256"
+        }
+    },
+    "image":{
+        "@type":"ImageObject",
+        "url": https://sreevisakh.github.io/public/logo.png ,
+    },
+    "dateModified":"2019-07-11 19:51:28 +0530",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://sreevisakh.github.io"
+      }
+  }
+  </script>
+  
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://sreevisakh.github.ioandroid",
+          "name": ""
+        }
+      }]
+    }
+    </script>
+  
+</head>
+
+
+<body>
+
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+        <div class="sidebar-about">
+            <h1>
+        <a href="">
+          an-else-view
+        </a>
+      </h1>
+            <p class="lead">A Web developers usual blog</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a class="sidebar-nav-item" href="/">Home</a>         
+            <a class="sidebar-nav-item" href="/about/">About</a>       
+            <a class="sidebar-nav-item" href="/categories/">Categories</a>         
+            <a class="sidebar-nav-item" href="/posts/">Posts</a>     
+            <a class="sidebar-nav-item" href="/resume/">Resume</a>                                                               
+            <a class="sidebar-nav-item" href="https://github.com/sreevisakh/">GitHub project</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="content container">
+    <div class="post">
+  <h1 class="post-title">Adding Custom Build to Android Project</h1>
+  <span class="post-date">06 Jul 2019</span>
+  <p>Android Project comes with to buildTypes debug &amp; release. this is specified in app/build.gradle file. You can add a different build where you want to customize the versionCode, versionName, or applicationId you can do that as follows</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>android {
+    buildTypes {
+        debug {
+            applicationIdSuffix &quot;.debug&quot;
+        }
+        internal {
+            matchingFallbacks = [&quot;release&quot;]
+            res &quot;string&quot; &quot;deployment_key&quot; &quot;internal-deployment-key&quot;
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile(&quot;proguard-android.txt&quot;), &quot;proguard-rules.pro&quot;
+        }
+
+    }
+}
+</code></pre></div>
+<p>Above I have added an Internal buildType and change the string resource deployment key. When you build your signed apk you will get an option to select this build variant and it will in this case generate apk in app/internal/app-internal.apk. You can also customize other resources by creating folder strcuture inside your app folder.</p>
+
+<p>by creating app/debug/res/values/string.xml as follows</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span></span><span class="nt">&lt;resources&gt;</span>
+    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&quot;app_name&quot;</span><span class="nt">&gt;</span>App Debug<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;/resources&gt;</span>
+</code></pre></div>
+<p>Your debug build generate apk file will have the application name App Debug. Since we even change the applicationIdSuffix above. It will install as a seperate app. so You can keep your original and debug app together. Go Try and figure out how to change the icon for each of these variants now.</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/automation/2017/06/14/simple-home-automation/">
+            Simple Home Automation
+            <small>14 Jun 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript/2017/05/09/recommended-way-of-adding-multiple-classes-in-css-modules/">
+            Recommended Way of adding multiple classes in css modules
+            <small>09 May 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/webpack/2017/05/06/deploying-webpack-app-on-heroku/">
+            Install webpack app on heroku
+            <small>06 May 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+
+</body>
+
+</html>

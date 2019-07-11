@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html" />
+
+  <meta name="keywords" content="an-else-view,sreevisakh,javascript,ubuntu,git,node,js,raspberry, pi, automation" />
+  <meta name="msvalidate.01" content="DD43C10FCD76ECD1121F8BC9AC1CA438" />
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1" />
+  <meta property="og:title" content="Running nodejs on port 80" />
+  <meta name="description" content="" />
+  <meta property="og:description" content="" />
+  <link rel="canonical" href="https://sreevisakh.github.io/javascript/2016/09/21/running-nodejs-on-port-80/" />
+  <meta property="og:url" content="https://sreevisakh.github.io/javascript/2016/09/21/running-nodejs-on-port-80/" />
+  <meta property="og:site_name" content="an-else-view" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@_sreevisakh" />
+  <meta name="twitter:creator" content="@_sreevisakh" />
+  <meta property="fb:app_id" content="1538630872879036" />
+  <meta name="google-site-verification" content="mizsVxe9d4dqvMN1c6kT5C8x1F6Aw4srhKvg9r195N0" />
+  <link rel="apple-touch-icon" href="/public/favicon.ico" />
+  <link rel="shortcut icon" href="/public/favicon.ico" />
+  <link rel="favicon" href="/public/favicon.ico" />
+  <link rel="canonical" href="https://sreevisakh.github.io" />
+
+  <title>
+    Running nodejs on port 80 | an-else-view | Sreevisakh 
+
+  </title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://sreevisakh.github.io/public/css/style.css" />
+  <link rel="stylesheet" href="https://sreevisakh.github.io/public/css/syntax.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface" />
+
+  <!-- Icons -->
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml" />
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-34015218-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6061935954047022",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Article",
+    "name": "Running nodejs on port 80",
+    "author": {
+        "@type" : "Person",
+        "name": "Sreevisakh",
+        "email": "mail@sreevisakh.com"
+    },
+    "datePublished" :"2016-09-21 00:00:00 +0530",
+    "headline":"Running nodejs on port 80",
+    "publisher":{
+        "@type":"Organization",
+        "name":"an-else-view",
+        "logo":{
+            "@type":"ImageObject",
+            "url":"https://sreevisakh.github.io/public/logo.png",
+            "width":"256",
+            "height":"256"
+        }
+    },
+    "image":{
+        "@type":"ImageObject",
+        "url": https://sreevisakh.github.io/public/logo.png ,
+    },
+    "dateModified":"2019-07-11 19:51:28 +0530",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://sreevisakh.github.io"
+      }
+  }
+  </script>
+  
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://sreevisakh.github.iojavascript",
+          "name": ""
+        }
+      }]
+    }
+    </script>
+  
+</head>
+
+
+<body>
+
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+        <div class="sidebar-about">
+            <h1>
+        <a href="">
+          an-else-view
+        </a>
+      </h1>
+            <p class="lead">A Web developers usual blog</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a class="sidebar-nav-item" href="/">Home</a>         
+            <a class="sidebar-nav-item" href="/about/">About</a>       
+            <a class="sidebar-nav-item" href="/categories/">Categories</a>         
+            <a class="sidebar-nav-item" href="/posts/">Posts</a>     
+            <a class="sidebar-nav-item" href="/resume/">Resume</a>                                                               
+            <a class="sidebar-nav-item" href="https://github.com/sreevisakh/">GitHub project</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="content container">
+    <div class="post">
+  <h1 class="post-title">Running nodejs on port 80</h1>
+  <span class="post-date">21 Sep 2016</span>
+  <p>If you are familiar with network ports, ports below 1024 are reserved port for
+system application. In ubuntu we will not be able to use those ports for our appllication in standard user mode.
+One way to use them is to run it as root user with the help of <code>sudo</code>. But which will open our application to the world
+with root access to the server which will cause serious security issue.</p>
+
+<h3>Non Root Port Binding</h3>
+
+<p>This is another way to bind our application to ports less than 1024 without <code>sudo</code>.  execute the following command for this.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo setcap <span class="nv">cap_net_bind_service</span><span class="o">=</span>+ep <span class="sb">`</span>which node<span class="sb">`</span></code></pre></figure>
+
+<p>if you get an error that setcap not found install it with the following command</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo apt-get install libcap2-bin</code></pre></figure>
+
+<p>this will help our node binary to bind to reserved ports wihout root. Now if you start your app with port 80 it will not give
+you <code>EACCESS</code> error.</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/android/2019/07/06/adding-custom-build-to-android-project/">
+            Adding Custom Build to Android Project
+            <small>06 Jul 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/automation/2017/06/14/simple-home-automation/">
+            Simple Home Automation
+            <small>14 Jun 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript/2017/05/09/recommended-way-of-adding-multiple-classes-in-css-modules/">
+            Recommended Way of adding multiple classes in css modules
+            <small>09 May 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+    this.page.url = 'https://sreevisakh.github.io/javascript/2016/09/21/running-nodejs-on-port-80/';  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = '/javascript/2016/09/21/running-nodejs-on-port-80/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//sreevisakh.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  </div>
+
+</body>
+
+</html>

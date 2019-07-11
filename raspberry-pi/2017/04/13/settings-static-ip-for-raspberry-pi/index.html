@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html" />
+
+  <meta name="keywords" content="an-else-view,sreevisakh,javascript,ubuntu,git,node,js,raspberry, pi, automation" />
+  <meta name="msvalidate.01" content="DD43C10FCD76ECD1121F8BC9AC1CA438" />
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1" />
+  <meta property="og:title" content="Setting static ip address for raspberry pi" />
+  <meta name="description" content="" />
+  <meta property="og:description" content="" />
+  <link rel="canonical" href="https://sreevisakh.github.io/raspberry-pi/2017/04/13/settings-static-ip-for-raspberry-pi/" />
+  <meta property="og:url" content="https://sreevisakh.github.io/raspberry-pi/2017/04/13/settings-static-ip-for-raspberry-pi/" />
+  <meta property="og:site_name" content="an-else-view" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@_sreevisakh" />
+  <meta name="twitter:creator" content="@_sreevisakh" />
+  <meta property="fb:app_id" content="1538630872879036" />
+  <meta name="google-site-verification" content="mizsVxe9d4dqvMN1c6kT5C8x1F6Aw4srhKvg9r195N0" />
+  <link rel="apple-touch-icon" href="/public/favicon.ico" />
+  <link rel="shortcut icon" href="/public/favicon.ico" />
+  <link rel="favicon" href="/public/favicon.ico" />
+  <link rel="canonical" href="https://sreevisakh.github.io" />
+
+  <title>
+    Setting static ip address for raspberry pi | an-else-view | Sreevisakh 
+
+  </title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://sreevisakh.github.io/public/css/style.css" />
+  <link rel="stylesheet" href="https://sreevisakh.github.io/public/css/syntax.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface" />
+
+  <!-- Icons -->
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml" />
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-34015218-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6061935954047022",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Article",
+    "name": "Setting static ip address for raspberry pi",
+    "author": {
+        "@type" : "Person",
+        "name": "Sreevisakh",
+        "email": "mail@sreevisakh.com"
+    },
+    "datePublished" :"2017-04-13 00:00:00 +0530",
+    "headline":"Setting static ip address for raspberry pi",
+    "publisher":{
+        "@type":"Organization",
+        "name":"an-else-view",
+        "logo":{
+            "@type":"ImageObject",
+            "url":"https://sreevisakh.github.io/public/logo.png",
+            "width":"256",
+            "height":"256"
+        }
+    },
+    "image":{
+        "@type":"ImageObject",
+        "url": https://sreevisakh.github.io/public/logo.png ,
+    },
+    "dateModified":"2019-07-11 19:51:28 +0530",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://sreevisakh.github.io"
+      }
+  }
+  </script>
+  
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://sreevisakh.github.ioraspberry-pi",
+          "name": ""
+        }
+      }]
+    }
+    </script>
+  
+</head>
+
+
+<body>
+
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+        <div class="sidebar-about">
+            <h1>
+        <a href="">
+          an-else-view
+        </a>
+      </h1>
+            <p class="lead">A Web developers usual blog</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a class="sidebar-nav-item" href="/">Home</a>         
+            <a class="sidebar-nav-item" href="/about/">About</a>       
+            <a class="sidebar-nav-item" href="/categories/">Categories</a>         
+            <a class="sidebar-nav-item" href="/posts/">Posts</a>     
+            <a class="sidebar-nav-item" href="/resume/">Resume</a>                                                               
+            <a class="sidebar-nav-item" href="https://github.com/sreevisakh/">GitHub project</a>
+        </nav>
+    </div>
+</div>
+
+
+  <div class="content container">
+    <div class="post">
+  <h1 class="post-title">Setting static ip address for raspberry pi</h1>
+  <span class="post-date">13 Apr 2017</span>
+  <p>When you add raspberry pi to your network it is essential that you should be able to ssh in to the pi.  This can be difficult if the ip address changes everytime pi reboots.  One way to solve the problem is setting a static ip address for your pi.</p>
+
+<p>Normally ip address are assigned dynamically by your router. So that pi will get a random ip address every time it connects to the network from an ip pool.  This is done with the help of a DHCP server and client.</p>
+
+<p>The information about your network interfaces are in the following file.
+  <code>/etc/interfaces</code>
+The above files have information about what all different net work devices
+if you have lan connection it will be denoted by eth0 (mostly) &amp; wifi will wlan0.  You can modify this information to assign static ip to pi.</p>
+
+<p>change the above file content after wlan0 as follows (if you are using pi wifi to connect to net otherwise choose eth0)</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>iface wlan0 inet static
+    address <span class="m">192</span>.168.1.1
+    netmask <span class="m">255</span>.255.255.0
+    gateway <span class="m">192</span>.168.1.1
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+</code></pre></div>
+<p>Now the address, netmask, gateway varies with network.  Normal home broaband connection will have something similar to above.
+you can run <code>ifconfig</code> it will show you these information</p>
+
+<p>in the output you can see gateway &amp; subnet, for the address, select one address in that subnet (mostly if gateway is 192.168.1.1 address can be in 192.168.1.2 - 192.168.1.254)</p>
+
+<p>reboot your pi it will have static ip you can connect.</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/android/2019/07/06/adding-custom-build-to-android-project/">
+            Adding Custom Build to Android Project
+            <small>06 Jul 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/automation/2017/06/14/simple-home-automation/">
+            Simple Home Automation
+            <small>14 Jun 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/javascript/2017/05/09/recommended-way-of-adding-multiple-classes-in-css-modules/">
+            Recommended Way of adding multiple classes in css modules
+            <small>09 May 2017</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+  </div>
+
+</body>
+
+</html>
